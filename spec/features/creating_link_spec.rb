@@ -2,6 +2,9 @@ require 'spec_helper'
 
 feature 'Create Link' do
 	scenario 'creates a new link to add to database' do
+
+		DatabaseCleaner.clean
+
 		visit('/links/new')
 
     fill_in :title , with: "Bbc"
