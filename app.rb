@@ -2,10 +2,8 @@ ENV["RACK_ENV"] ||= "development"
 
 require 'sinatra/base'
 require './models/link.rb'
-require 'sequel'
-#Heroku configuration
-Sequel.connect(ENV['DATABASE_URL'] || 'postgres://localhost/mydb')
-DataMapper.setup(:default, ENV['DATABASE_URL'] || 'postgres://localhost/mydb')
+
+
 
 class BookmarkManager < Sinatra::Base
   get '/' do
