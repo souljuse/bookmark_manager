@@ -11,7 +11,6 @@ feature 'Display Link' do
 		within 'ul#links' do
 			expect(page).to have_content('Makers Academy')
 		end
-		
-		DatabaseCleaner.clean
+
 	end
 end
