@@ -2,6 +2,7 @@ ENV["RACK_ENV"] ||= "development"
 
 require 'sinatra/base'
 require './models/link.rb'
+require 'sequel'
 
 class BookmarkManager < Sinatra::Base
   get '/' do
@@ -25,3 +26,7 @@ class BookmarkManager < Sinatra::Base
   # start the server if ruby file executed directly
   run! if app_file == $0
 end
+
+#Heroku configuration
+Sequel.connect(ENV['DATABASE_URL'] || 'postgres://localhost/mydb')
+DataMapper.setup(:default, ENV['DATABASE_URL'] || 'postgres://localhost/mydb')
