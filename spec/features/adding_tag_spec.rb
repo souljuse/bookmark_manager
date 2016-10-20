@@ -1,9 +1,9 @@
 require 'spec_helper'
 
-feature 'Create Link' do
-	scenario 'creates a new link to add to database' do
-		enter_new_link("Bbc", "news")
+feature 'Add tags' do
+	scenario 'add multiple tags to a link' do
+		enter_new_link("Funny Cats", "fun cats")
 		link = Link.first
-    expect(link.tags.map(&:name)).to include('news')
+    expect(link.tags.map(&:name)).to include('fun', 'cats')
 	end
 end
