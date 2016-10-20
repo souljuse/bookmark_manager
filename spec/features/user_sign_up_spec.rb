@@ -14,4 +14,8 @@ feature 'User sign up' do
     sign_up
     expect(User.first.email).to eq('alice@example.com')
   end
+
+  scenario 'password and password_confirmation should match' do
+    expect { sign_up(password_confirmation: 'apples!') }.not_to change(User, :count)
+  end
 end
