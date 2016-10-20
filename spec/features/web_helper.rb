@@ -3,7 +3,7 @@ def enter_new_link
 
   fill_in :title , with: "Bbc"
   fill_in :url , with: "www.bbc.co.uk"
-  select("News", :from => "select")
+  fill_in :tags , with: "news"
   click_button('Create Link')
 
 end
