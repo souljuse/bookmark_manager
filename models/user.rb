@@ -7,7 +7,7 @@ class User
   has n, :tags, through: Resource
 
   property :id,     Serial
-  property :email,   String
+  property :email,   String, format: :email_address, required: true, unique: true
   property :password_digest,  Text
 
   def password=(password)
@@ -18,5 +18,5 @@ class User
   attr_reader :password
   attr_accessor :password_confirmation
 
-  validates_confirmation_of :password
+  validates_confirmation_of :password, :message => "Password and confirmation password do not match"
 end
