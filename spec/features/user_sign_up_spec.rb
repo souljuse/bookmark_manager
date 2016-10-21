@@ -18,4 +18,15 @@ feature 'User sign up' do
   scenario 'password and password_confirmation should match' do
     expect { sign_up(password_confirmation: 'apples!') }.not_to change(User, :count)
   end
+
+  scenario 'if password and password_confirmation do not match a message should be shown' do
+      sign_up(password_confirmation: 'apples!')
+      expect(current_path).to eq('/users')
+      expect(page).to have_content('Password and confirmation password do not match')
+    end
+
+  # scenario 'user cannot login if email not provided' do
+  #   sign_up(email: "")
+  #   expect(page).to have_content('Please enter a valid email address')
+  # end
 end
