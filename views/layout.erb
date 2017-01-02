@@ -16,7 +16,13 @@
           <li><%= error %></li>
         <% end %>
       </ul>
+
+      <form action='/sessions' method='post'>
+        <input type='hidden' name='_method' value='delete' />
+        <button type="submit">Sign out</button>
+      </form>
     <% end %>
+
 
     <%= yield %>
   </body>
